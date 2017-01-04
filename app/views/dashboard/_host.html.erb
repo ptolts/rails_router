@@ -1,0 +1,54 @@
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">Host</h3>
+			</div>
+			<div class="panel-body">
+				<p>IP: <span data-bind="text: ip_address"></span></p>
+				<p>MAC Address: <span data-bind="text: mac_address"></span></p>
+				<p>Card Type: <span data-bind="text: card_type"></span></p>
+				<p>Online: <span data-bind="text: online"></span></p>
+				<div class="row">
+					<div class="col-xs-12">
+						<h6>VPN:</h6>
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+								<!-- ko with: vpn -->
+									<span data-bind="text: country"></span> <span class="flag-icon" data-bind="css: 'flag-icon-' + country().toLowerCase()"></span>
+								<!-- /ko -->
+								<!-- ko ifnot: vpn -->
+									VPN
+								<!-- /ko -->								
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-bind="click: function(){ vpn_id(null); }">None</a></li>
+								<!-- ko foreach: $root.vpns -->
+									<li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-bind="click: function(){ $parent.vpn_id($data.id()); }"><span data-bind="text: country"></span> <span class="flag-icon" data-bind="css: 'flag-icon-' + country().toLowerCase()"></span></a></li>
+								<!-- /ko -->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h6>QOS:</h6>
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+								<!-- ko with: qos -->
+									<span data-bind="text: priority"></span>
+								<!-- /ko -->
+								<!-- ko ifnot: qos -->
+									Default
+								<!-- /ko -->
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+								<!-- ko foreach: $root.qoses -->
+									<li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-bind="click: function(){ $parent.qos_id($data.id()); }"><span data-bind="text: priority"></span></a></li>
+								<!-- /ko -->
+							</ul>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>

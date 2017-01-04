@@ -1,0 +1,10 @@
+<div class="col-md-6 col-lg-4" data-bind="with: host">
+	<%= render 'host' %>
+</div>
+
+<script>  
+var viewmodel = new DashboardHost();
+$(function(){	
+	ko.applyBindings(viewmodel,$("html")[0]);      			
+});
+</script>

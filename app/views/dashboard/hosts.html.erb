@@ -1,0 +1,12 @@
+<div data-bind="foreach: hosts">
+	<div class="col-md-6 col-lg-4">
+		<%= render 'host' %>
+	</div>
+</div>
+
+<script>  
+var viewmodel = new DashboardHosts();
+$(function(){	
+	ko.applyBindings(viewmodel,$("html")[0]);      			
+});
+</script>

@@ -1,0 +1,26 @@
+<div class="col-xs-12" data-bind="with: speedtest">
+	<h3>Setup</h3>
+	<p>We've automatically calculated your maximum throughput. If you'd like to manually change these values, do so below.</p>
+	<div class="row form-group">
+		<div class="col-xs-6">
+			<h5>Upload Speed (bytes)</h5>
+			<input class="form-control" data-bind="value: upRate" />
+		</div>
+		<div class="col-xs-6">
+			<h5>Download Speed (bytes)</h5>
+			<input class="form-control" data-bind="value: downRate" />
+		</div>		
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<button class="btn btn-primary" data-bind="click: save">Save</button>
+		</div>	
+	</div>	
+</div>
+
+<script>  
+var viewmodel = new DashboardSpeedtest();
+$(function(){	
+	ko.applyBindings(viewmodel,$("html")[0]);      			
+});
+</script>

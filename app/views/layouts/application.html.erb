@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Router</title>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<%= javascript_include_tag 'application' %>
+	<%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+	<div class="navbar navbar-static navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Router Dashboard</a>
+			</div>
+		</div>
+	</div>
+
+  <!-- Begin page content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-left sidebar-animate sidebar-md-show">
+        <ul class="nav navbar-stacked">
+          <li class="<%= active('setup') %>"><a href="/dashboard/setup">Setup</a></li>
+          <li class="<%= active('index') %>"><a href="/dashboard">This Device</a></li>
+          <li class="<%= active('hosts') %>"><a href="/dashboard/hosts">All Devices</a></li>
+        </ul>
+      </div>
+      <div class="main col-md-9 col-md-offset-3">
+        <%= yield %>
+      </div>
+    </div>
+  </div> 
+
+</body>
+</html>
